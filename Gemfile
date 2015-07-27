@@ -33,7 +33,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'foundation-rails'
-gem 'simple_form'
 gem 'friendly_id', '~> 5.1.0'
 gem 'devise'
 
