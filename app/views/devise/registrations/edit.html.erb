@@ -17,6 +17,7 @@
       <%= f.text_field :username, autocomplete: "off", placeholder: "Enter new username" %>
       <%= f.text_field :first_name, placeholder: "First name" %>
       <%= f.text_field :last_name, placeholder: "Last name" %>
+      <%= f.select :role, options_for_select({ 'customer' => 'customer', 'artisan' => 'artisan', 'admin' => 'admin'}, current_user.role) %>
     </div>
     <div class="row">
       <%= f.submit "Update", class: "button radius large expand" %>
