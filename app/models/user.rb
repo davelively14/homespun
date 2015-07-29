@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :store_users
+  has_many :artisans
+  # has_many :stores, :through => 'Artisan'
+
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

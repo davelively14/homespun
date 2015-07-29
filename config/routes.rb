@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :store_users
   resources :stores
   devise_for :users
   root 'pages#home'

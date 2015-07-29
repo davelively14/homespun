@@ -1,4 +1,4 @@
-class StoreUser < ActiveRecord::Base
+class Artisan < ActiveRecord::Base
   belongs_to :store
   belongs_to :user
 end
