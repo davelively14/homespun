@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  resources :store_users
+  resources :stores
   devise_for :users
   root 'pages#home'
 
   get '/users', to: 'users#index'
+  get '/users/:id', to: 'users#show', as: 'user'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
