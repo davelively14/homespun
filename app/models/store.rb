@@ -1,6 +1,6 @@
 class Store < ActiveRecord::Base
   has_many :artisans
-  # has_many :users, :through => 'Artisan'
+  has_many :users, :through => 'Artisan'
 
   extend FriendlyId
 
