@@ -1,19 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.last_name %>, <%= @user.first_name %>
-</p>
+<div class="row">
+  <div class="small-3 columns panel">
+    <h1><%= current_user.username %></h1>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
+      <strong>Name:</strong> <%= @user.last_name %>, <%= @user.first_name %> </br>
+      <strong>Username:</strong> <%= @user.username %> </br>
+      <strong>Slug:</strong> <%= @user.slug %> </br></br>
 
-<p>
-  <strong>Slug:</strong>
-  <%= @user.slug %>
-</p>
 
-<%= link_to 'Edit', edit_store_path(@user) %> |
-<%= link_to 'Back', stores_path %>
+    <%= link_to 'Edit Info', edit_user_registration_path(@user), class:  "button info radius small" %>
+  </div>
+  <div class="small-9 columns">
+    <h3>Test</h3>
+  </div>
+</div>

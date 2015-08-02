@@ -15,6 +15,7 @@
           <li class="has-dropdown not-click">
             <a><%= current_user.username %></a>
             <ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li><li class="parent-link show-for-small-only"><a class="parent-link js-generated" href="#">Main Item 6</a></li>
+              <li><%= link_to "Dashboard", user_path(current_user) %></li>
               <li><%= link_to "Edit profile", edit_user_registration_path %></li>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
             </ul>
