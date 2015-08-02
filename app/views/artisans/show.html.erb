@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @artisan.role %>
+</p>
+
+<p>
+  <strong>Approved:</strong>
+  <%= @artisan.approved %>
+</p>
+
+<%= link_to 'Edit', edit_artisan_path(@artisan) %> |
+<%= link_to 'Back', artisans_path %>
