@@ -1,4 +1,12 @@
                   Prefix Verb   URI Pattern                    Controller#Action
+                artisans GET    /artisans(.:format)            artisans#index
+                         POST   /artisans(.:format)            artisans#create
+             new_artisan GET    /artisans/new(.:format)        artisans#new
+            edit_artisan GET    /artisans/:id/edit(.:format)   artisans#edit
+                 artisan GET    /artisans/:id(.:format)        artisans#show
+                         PATCH  /artisans/:id(.:format)        artisans#update
+                         PUT    /artisans/:id(.:format)        artisans#update
+                         DELETE /artisans/:id(.:format)        artisans#destroy
                   stores GET    /stores(.:format)              stores#index
                          POST   /stores(.:format)              stores#create
                new_store GET    /stores/new(.:format)          stores#new

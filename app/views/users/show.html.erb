@@ -4,14 +4,20 @@
   <div class="small-3 columns panel">
     <h1><%= current_user.username %></h1>
 
-      <strong>Name:</strong> <%= @user.last_name %>, <%= @user.first_name %> </br>
-      <strong>Username:</strong> <%= @user.username %> </br>
-      <strong>Slug:</strong> <%= @user.slug %> </br></br>
+      <h5><%= @user.first_name %> <%= @user.last_name %></h5>
+      <p><%= @user.email %></p>
 
-
-    <%= link_to 'Edit Info', edit_user_registration_path(@user), class:  "button info radius small" %>
+    <%= link_to 'Edit Info', edit_user_registration_path(@user), class:  "button info radius small expand" %>
   </div>
   <div class="small-9 columns">
-    <h3>Test</h3>
+    <% if current_user.role == 'artisan' %>
+      <h2>Artisan Dashboard</h2>
+      <p><%= link_to 'Artisans list', artisans_path %></p>
+    <% elsif current_user.role == 'customer' %>
+      <h2>Dashboard</h2>
+    <% else %>
+      <h2>Admin Dashboard</h2>
+    <% end %>
+
   </div>
 </div>

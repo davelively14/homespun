@@ -1,29 +1,31 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Artisans</h1>
+<div class="row">
+  <h1>Listing Artisans</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Role</th>
-      <th>Approved</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @artisans.each do |artisan| %>
+  <table>
+    <thead>
       <tr>
-        <td><%= artisan.role %></td>
-        <td><%= artisan.approved %></td>
-        <td><%= link_to 'Show', artisan %></td>
-        <td><%= link_to 'Edit', edit_artisan_path(artisan) %></td>
-        <td><%= link_to 'Destroy', artisan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Role</th>
+        <th>Approved</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @artisans.each do |artisan| %>
+        <tr>
+          <td><%= artisan.role %></td>
+          <td><%= artisan.approved %></td>
+          <td><%= link_to 'Show', artisan %></td>
+          <td><%= link_to 'Edit', edit_artisan_path(artisan) %></td>
+          <td><%= link_to 'Destroy', artisan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Artisan', new_artisan_path %>
+  <br>
+
+  <%= link_to 'New Artisan', new_artisan_path %>
+</div>
