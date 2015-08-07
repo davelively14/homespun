@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <div class="row">
   <div class="small-3 columns panel">
     <h1><%= current_user.username %></h1>
@@ -12,7 +10,11 @@
   <div class="small-9 columns">
     <% if current_user.role == 'artisan' %>
       <h2>Artisan Dashboard</h2>
-      <p><%= link_to 'Artisans list', artisans_path %></p>
+      <p>
+        <%= link_to 'Artisans list', artisans_path %> |
+        <%= link_to 'Create Store', new_store_path %> |
+        <%= link_to 'Create Store Association', new_artisan_path %>
+      </p>
     <% elsif current_user.role == 'customer' %>
       <h2>Dashboard</h2>
     <% else %>

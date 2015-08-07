@@ -7,6 +7,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    if current_user
+      @stores = current_user.stores
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   private

@@ -10,11 +10,16 @@ class StoresController < ApplicationController
   # GET /stores/1
   # GET /stores/1.json
   def show
+    @users = @store.artisans
   end
 
   # GET /stores/new
   def new
-    @store = Store.new
+    if current_user
+      @store = Store.new
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   # GET /stores/1/edit

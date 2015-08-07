@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   has_many :artisans
-  # has_many :stores, :through => 'Artisan'
+  has_many :stores, :through => :artisans
 
 
   # Include default devise modules. Others available are:
