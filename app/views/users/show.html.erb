@@ -13,7 +13,7 @@
       <p>
         <%= link_to 'Artisans list', artisans_path %> |
         <%= link_to 'Create Store', new_store_path %> |
-        <%= link_to 'Create Store Association', new_artisan_path %>
+        <%= link_to 'Apply to Current Store', new_artisan_path %>
       </p>
     <% elsif current_user.role == 'customer' %>
       <h2>Dashboard</h2>

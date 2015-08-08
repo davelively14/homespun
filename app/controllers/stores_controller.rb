@@ -30,6 +30,9 @@ class StoresController < ApplicationController
   # POST /stores.json
   def create
     @store = Store.new(store_params)
+    @store.users << User.find(current_user.id)
+    @store.artisans.first.approved = true
+    @store.artisans.first.role = 'owner'
 
     respond_to do |format|
       if @store.save

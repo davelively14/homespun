@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :artisans
+  has_many :artisans, dependent: :destroy
   has_many :stores, :through => :artisans
 
 

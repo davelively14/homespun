@@ -15,6 +15,7 @@ class ArtisansController < ApplicationController
   # GET /artisans/new
   def new
     @artisan = Artisan.new
+    @stores = Store.all
   end
 
   # GET /artisans/1/edit
