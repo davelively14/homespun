@@ -11,10 +11,29 @@
     <% if current_user.role == 'artisan' %>
       <h2>Artisan Dashboard</h2>
       <p>
-        <%= link_to 'Artisans list', artisans_path %> |
         <%= link_to 'Create Store', new_store_path %> |
-        <%= link_to 'Apply to Current Store', new_artisan_path %>
+        <%= link_to 'Link to a Current Store', new_artisan_path %>
       </p>
+      <% if @stores.length > 0 %>
+        <table>
+          <thead>
+            <tr>
+              <th>Store Name</th>
+              <th>Description</th>
+              <th>My Role</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <% @stores.each do |store| %>
+            <tr>
+              <td><%= store.name %></td>
+              <td><%= store.description.first(40) %>...</td>
+              <td><%= store.artisans.first.role.capitalize %></td>
+              <td><%= link_to 'Delete', '#' %></td>
+            </tr>
+          <% end %>
+        </table>
+      <% end %>
     <% elsif current_user.role == 'customer' %>
       <h2>Dashboard</h2>
     <% else %>
