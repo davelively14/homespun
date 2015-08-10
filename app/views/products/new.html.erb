@@ -1,5 +1,9 @@
-<h1>New Product</h1>
+<div class="row">
+  <h1 class="text-center">New Product</h1>
+</div>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', products_path %>
+<div class="row">
+  <%= link_to 'Cancel', store_path(@product.store_id) %>
+</div>

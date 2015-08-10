@@ -11,39 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :store_id %><br>
-    <%= f.number_field :store_id %>
+  <div class="row">
+    <%= f.hidden_field :store_id %>
+    <%= f.text_field :name, required: true, autofocus: true, placeholder: 'Product Name' %>
+    <%= f.text_area :description, required: true, placeholder: 'Product Description' %>
+    <%= f.text_field :list_price, required: true, placeholder: 'Price' %>
+    <%= f.text_field :image_url, placeholder: 'Image URL' %>
+    <%= f.text_field :mfger, placeholder: 'Manufacturer/Publisher' %>
+    <%= f.text_field :model, placeholder: 'Model/Version' %>
+    In stock: <%= f.check_box :in_stock %>
   </div>
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="row">
+    <%= f.submit class: 'button radius large expand' %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :list_price %><br>
-    <%= f.text_field :list_price %>
-  </div>
-  <div class="field">
-    <%= f.label :image_url %><br>
-    <%= f.text_field :image_url %>
-  </div>
-  <div class="field">
-    <%= f.label :mfger %><br>
-    <%= f.text_field :mfger %>
-  </div>
-  <div class="field">
-    <%= f.label :model %><br>
-    <%= f.text_field :model %>
-  </div>
-  <div class="field">
-    <%= f.label :in_stock %><br>
-    <%= f.check_box :in_stock %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>

@@ -1,6 +1,8 @@
-<h1>Editing Product</h1>
+<div class="row text-center">
+  <h1>Editing Product</h1>
+</div>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<div class="row">
+  <%= link_to 'Back', product_path(@product) %>
+</div>
