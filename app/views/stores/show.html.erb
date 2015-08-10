@@ -8,17 +8,19 @@
         </div>
         <div class="row panel">
           <%= link_to 'Edit Store Info', edit_store_path(@store), class: 'button info radius small expand' %>
-          <%= link_to 'Add a Product', new_product_path, class: 'button info radius small expand' %>
+          <%= link_to 'Add a Product', new_product_path(store_id: @store.id), class: 'button info radius small expand' %>
         </div>
       </div>
       <div class="large-9 columns">
         <div class="row">
-          <% if @products.nil? %>
+          <% if @products.length > 0 %>
             <% @products.each do |product| %>
               <div class="large-4 small-6 columns">
                 <div class="panel">
-                  <h5><%= product.name %></h5>
-                  <p><%= product.description %></p>
+                  <h4><%= product.name %></h4>
+                  <%= image_tag(product.image_url) %>
+                  <p><%= product.description.first(50) %></p>
+                  <p class="text-right"><%= number_to_currency(product.list_price) %></p>
                 </div>
               </div>
             <% end %>

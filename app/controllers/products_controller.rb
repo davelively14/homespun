@@ -10,12 +10,12 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    @store = Store.find(params[@product.store_id])
   end
 
   # GET /products/new
   def new
     @product = Product.new
+    @product.store_id = params[:store_id]
   end
 
   # GET /products/1/edit

@@ -30,6 +30,8 @@ class StoresController < ApplicationController
   # POST /stores
   # POST /stores.json
   def create
+    # todo Refactor store creation logic.
+    # The use of .first seems messy.
     @store = Store.new(store_params)
     @store.users << User.find(current_user.id)
     @store.artisans.first.approved = true
