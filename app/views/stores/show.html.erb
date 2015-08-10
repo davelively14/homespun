@@ -1,19 +1,36 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="row">
+      <div class="large-3 small-12 columns">
+        <div class="row panel">
+          <h2><%= @store.name %></h2>
+          <p><%= @store.description %></p>
+        </div>
+        <div class="row panel">
+          <%= link_to 'Edit Store Info', edit_store_path(@store), class: 'button info radius small expand' %>
+          <%= link_to 'Add a Product', new_product_path, class: 'button info radius small expand' %>
+        </div>
+      </div>
+      <div class="large-9 columns">
+        <div class="row">
+          <% if @products.nil? %>
+            <% @products.each do |product| %>
+              <div class="large-4 small-6 columns">
+                <div class="panel">
+                  <h5><%= product.name %></h5>
+                  <p><%= product.description %></p>
+                </div>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="large-8 columns">
+              <h1 class="text-center">No items for sale yet</h1>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @store.name %>
-</p>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @store.description %>
-</p>
-
-<p>
-  <strong>Slug:</strong>
-  <%= @store.slug %>
-</p>
-
-<%= link_to 'Edit', edit_store_path(@store) %> |
-<%= link_to 'Back', stores_path %>

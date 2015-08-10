@@ -10,7 +10,8 @@ class StoresController < ApplicationController
   # GET /stores/1
   # GET /stores/1.json
   def show
-    @users = @store.artisans
+    # @users = @store.artisans
+    @products = Product.where(store_id: @store.id)
   end
 
   # GET /stores/new
@@ -36,7 +37,7 @@ class StoresController < ApplicationController
 
     respond_to do |format|
       if @store.save
-        format.html { redirect_to @store, notice: 'Store was successfully created.' }
+        format.html { redirect_to user_path(current_user), notice: 'Store was successfully created.' }
         format.json { render :show, status: :created, location: @store }
       else
         format.html { render :new }

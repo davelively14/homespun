@@ -1,13 +1,14 @@
 <div class="row">
-  <div class="small-3 columns panel">
+  <div class="large-3 small-12 columns panel">
     <h1><%= current_user.username %></h1>
 
-      <h5><%= @user.first_name %> <%= @user.last_name %></h5>
-      <p><%= @user.email %></p>
+    <h5><%= @user.first_name %> <%= @user.last_name %></h5>
+    <h6><%= @user.role.capitalize %></h6>
+    <p><%= @user.email %></p>
 
     <%= link_to 'Edit Info', edit_user_registration_path(@user), class:  "button info radius small expand" %>
   </div>
-  <div class="small-9 columns">
+  <div class="large-9 columns">
     <% if current_user.role == 'artisan' %>
       <h2>Artisan Dashboard</h2>
       <p>
@@ -18,18 +19,18 @@
         <table>
           <thead>
             <tr>
-              <th>Store Name</th>
-              <th>Description</th>
-              <th>My Role</th>
-              <th>Actions</th>
+              <th class="text-center">Store Name</th>
+              <th class="text-center">Description</th>
+              <th class="text-center">My Role</th>
+              <th class="text-center">Actions</th>
             </tr>
           </thead>
           <% @stores.each do |store| %>
             <tr>
-              <td><%= store.name %></td>
+              <td><%= link_to store.name, store_path(store) %></td>
               <td><%= store.description.first(40) %>...</td>
               <td><%= store.artisans.first.role.capitalize %></td>
-              <td><%= link_to 'Delete', '#' %></td>
+              <td class="text-center"><%= link_to 'Delete', '#' %></td>
             </tr>
           <% end %>
         </table>
