@@ -14,16 +14,18 @@
       <div class="large-9 columns">
         <div class="row">
           <% if @products.length > 0 %>
-            <% @products.each do |product| %>
-              <div class="large-4 small-6 columns">
-                <div class="panel">
-                  <h4><%= link_to product.name, product_path(product) %></h4>
-                  <%= link_to image_tag(product.image_url), product_path(product) %>
-                  <p><%= product.description.first(50) %></p>
-                  <p class="text-right"><%= number_to_currency(product.list_price) %></p>
-                </div>
-              </div>
-            <% end %>
+            <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-3">
+              <% @products.each do |product| %>
+                <li>
+                  <div class="panel">
+                    <h4><%= link_to product.name, product_path(product) %></h4>
+                    <%= link_to image_tag(product.image_url), product_path(product) %>
+                    <p><%= product.description.first(50) %></p>
+                    <p class="text-right"><%= number_to_currency(product.list_price) %></p>
+                  </div>
+                </li>
+              <% end %>
+            </ul>
           <% else %>
             <div class="large-8 columns">
               <h1>No items for sale yet</h1>
