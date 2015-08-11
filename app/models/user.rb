@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   has_many :artisans, dependent: :destroy
   has_many :stores, :through => :artisans
+  # todo Fix dependent destroy
+  # We want addresses to be destroyed when a user is destroyed, if it is not associated to an order.
+  has_many :addresses
 
 
   # Include default devise modules. Others available are:
