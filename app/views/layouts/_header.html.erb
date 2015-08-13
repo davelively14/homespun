@@ -7,14 +7,17 @@
     </ul>
 
     <section class="top-bar-section">
+
       <!-- Right Nav Section -->
       <ul class="right">
         <li><%= link_to "All users", users_path %></li>
         <li><%= link_to "All stores", stores_path %></li>
         <li><%= link_to "All items", products_path %></li>
+
+        <!-- Drop down menu -->
         <% if current_user %>
           <li class="has-dropdown not-click">
-            <a><%= current_user.username %></a>
+            <%= link_to current_user.username, user_path(current_user) %>
             <ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li><li class="parent-link show-for-small-only"><a class="parent-link js-generated" href="#">Main Item 6</a></li>
               <li><%= link_to "Dashboard", user_path(current_user) %></li>
               <li><%= link_to "Edit profile", edit_user_registration_path %></li>
