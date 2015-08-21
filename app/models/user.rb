@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   # todo Fix dependent destroy
   # We want addresses to be destroyed when a user is destroyed, if it is not associated to an order.
   has_many :addresses
+  has_one :cart, dependent: :destroy
 
 
   # Include default devise modules. Others available are:
