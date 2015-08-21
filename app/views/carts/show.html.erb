@@ -1,4 +1,26 @@
 <p id="notice"><%= notice %></p>
 
+<div class="row">
+  <table>
+    <thead>
+      <tr class="center">
+        <th>Item</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <% @cart.line_items.each do |line_item| %>
+      <tr>
+        <td><%= line_item.product.name %></td>
+        <td><%= line_item.sales_price %></td>
+        <td><%= line_item.quantity %></td>
+        <td><%= number_to_currency(line_item.sales_price * line_item.quantity) %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= button_to 'Empty Cart', cart_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Edit', edit_cart_path(@cart) %> |
 <%= link_to 'Back', carts_path %>
