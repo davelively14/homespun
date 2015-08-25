@@ -15,21 +15,7 @@
         <div class="row">
           <% if @products.length > 0 %>
             <ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-3">
-              <% @products.each do |product| %>
-                <li>
-                  <div class="panel">
-                    <h4><%= link_to product.name, product_path(product) %></h4>
-                    <%= link_to image_tag(product.image_url), product_path(product) %>
-                    <p><%= product.description.first(50) %></p>
-                    <p>
-                      <span class="right large"><%= number_to_currency(product.list_price) %></span>
-                      <span class="left"><%= button_to 'Add to Cart', line_items_path(product_id: product.id), class: 'label radius small success' %></span>
-                    </p>
-                    <p>
-                    </p>
-                  </div>
-                </li>
-              <% end %>
+              <%= render @products %>
             </ul>
           <% else %>
             <div class="large-8 columns">
