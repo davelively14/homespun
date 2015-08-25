@@ -9,7 +9,7 @@
   </div>
 <% end %>
 
-<div class="row">
+<div class="row add-space">
   <div class="large-12 columns">
 
     <div class="row">
@@ -21,6 +21,13 @@
         <div class="hide-for-small panel">
           <h3>Homespun</h3>
           <h5 class="subheader">Create, post, sell. Locally.</h5>
+        </div>
+
+        <div class="hide-for-small panel">
+          <h3>Find a store</h3>
+          <% @stores.each do |store| %>
+            <h6><%= link_to store.name, store_path(store.id) %></h6>
+          <% end %>
         </div>
 
       </div>

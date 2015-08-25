@@ -21,7 +21,7 @@
         <p>Manufactured by: <%= @product.mfger %></p>
         <p>Model Number: <%= @product.model %></p>
         <% if @product.in_stock %>
-          <%= link_to 'Add to Cart', '#', class: 'button success round small right' %>
+          <%= button_to 'Add to Cart', line_items_path(product_id: @product.id), class: 'button success round small right' %>
         <% end %>
       </div>
     </div>
