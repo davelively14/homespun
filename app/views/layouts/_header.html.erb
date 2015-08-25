@@ -12,8 +12,9 @@
       <ul class="right">
         <li><%= link_to "All users", users_path %></li>
         <li><%= link_to "All stores", stores_path %></li>
-        <li><%= link_to "Cart", cart_path(session[:cart_id]) %></li>
-
+        <% if session[:cart_id] %>
+          <li><%= link_to "Cart", cart_path(session[:cart_id]) %></li>
+        <% end %>
         <!-- Drop down menu -->
         <% if current_user %>
           <li class="has-dropdown not-click">
