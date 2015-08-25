@@ -1,26 +1,60 @@
 <p id="notice"><%= notice %></p>
 
-<div class="row">
-  <table>
-    <thead>
-      <tr class="center">
-        <th>Item</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Subtotal</th>
-      </tr>
-    </thead>
-    <% @cart.line_items.each do |line_item| %>
-      <tr>
-        <td><%= line_item.product.name %></td>
-        <td><%= line_item.sales_price %></td>
-        <td><%= line_item.quantity %></td>
-        <td><%= number_to_currency(line_item.sales_price * line_item.quantity) %></td>
-      </tr>
-    <% end %>
-  </table>
+<div class="row text-center">
+  <div class="small-3 columns">
+    <h3>Product</h3>
+  </div>
+  <div class="small-4 columns">
+    <h3>Description</h3>
+  </div>
+  <div class="small-2 columns">
+    <h3>Qty</h3>
+  </div>
+  <div class="small-2 columns">
+    <h3>Price</h3>
+  </div>
+  <div class="small-1 columns">
+
+  </div>
 </div>
 
-<%= button_to 'Empty Cart', cart_path, method: :delete, data: { confirm: 'Are you sure?' } %>
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+<% @cart.line_items.each do |line_item| %>
+  <div class="row add-space">
+    <div class="small-1 columns">
+      <%= link_to image_tag(line_item.product.image_url), product_path(line_item.product_id), class: 'th' %>
+    </div>
+    <div class="small-2 columns">
+      <h5><%= link_to line_item.product.name, product_path(line_item.product_id) %></h5>
+    </div>
+    <div class="small-4 columns">
+      <p><%= line_item.product.description %></p>
+    </div>
+    <div class="small-2 columns text-center">
+      <p><%= line_item.quantity %></p>
+    </div>
+    <div class="small-2 columns text-center">
+      <p><%= number_to_currency(line_item.sales_price * line_item.quantity) %></p>
+    </div>
+    <div class="small-1 columns">
+      <% if @cart.line_items.length > 1 %>
+        <%= button_to 'Remove', line_item_path(line_item), method: :delete, data: { confirm: 'Delete item from cart?' }, class: 'label alert small radius' %>
+      <% else %>
+        <%= button_to 'Remove', cart_path(@cart.id), method: :delete, data: { confirm: 'Delete last item from cart?' }, class: 'label alert small radius' %>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="small-10 columns text-right">
+    <h5>Total:</h5>
+  </div>
+  <div class="small-2 columns text-center">
+    <h5><%= number_to_currency(@total) %></h5>
+  </div>
+</div>
+<div class="row">
+  <%= button_to 'Empty Cart', cart_path(@cart.id), method: :delete, data: { confirm: 'Are you sure you want to empty cart?' }, class: 'button alert radius left' %>
+  <%= button_to 'Checkout', '#', class: 'button success radius right' %>
+  <%= link_to 'Continue Shopping', :back, class: 'button info radius right' %>
+</div>

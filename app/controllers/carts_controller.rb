@@ -10,6 +10,10 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
+    @total = 0
+    @cart.line_items.each do |line_item|
+      @total = @total + (line_item.sales_price * line_item.quantity)
+    end
   end
 
   # GET /carts/new
@@ -57,7 +61,7 @@ class CartsController < ApplicationController
     @cart.destroy
     session.delete(:cart_id)
     respond_to do |format|
-      format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
+      format.html { redirect_to root_url, notice: 'Cart was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
