@@ -55,6 +55,6 @@
 </div>
 <div class="row">
   <%= button_to 'Empty Cart', cart_path(@cart.id), method: :delete, data: { confirm: 'Are you sure you want to empty cart?' }, class: 'button alert radius left' %>
-  <%= button_to 'Checkout', '#', class: 'button success radius right' %>
+  <%= link_to 'Checkout', '#', class: 'button success radius right' %>
   <%= link_to 'Continue Shopping', :back, class: 'button info radius right' %>
 </div>
