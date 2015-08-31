@@ -17,7 +17,7 @@
       <div class="large-6 small-8 columns">
         <h1><%= @product.name %></h1>
         <p><%= @product.description %></p>
-        <p class="text-right"><%= @product.list_price %></p>
+        <p class="text-right"><%= number_to_currency(@product.list_price) %></p>
         <p>Manufactured by: <%= @product.mfger %></p>
         <p>Model Number: <%= @product.model %></p>
         <% if @product.in_stock %>

@@ -47,6 +47,22 @@
     <div class="row">
       <a name="address"></a>
       <h4 class="text-center"><strong>Addresses</strong></h4>
+
+      <% @addresses.each do |address| %>
+        <div class="panel">
+          <h4><%= address.nick %></h4>
+          <ul class="no-bullet">
+            <li><%= address.street1 %></li>
+            <% if address.street2 %>
+              <li><%= address.street2 %></li>
+            <% end %>
+            <li><%= address.city %>, <%= address.state %> <%= address.zip %></li>
+          </ul>
+          <%= link_to 'Edit', edit_address_path(address), class: 'label radius small info' %>
+          <%= link_to 'Delete', address_path(address), method: :delete, class: 'label radius small alert' %>
+        </div>
+      <% end %>
+
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= devise_error_messages! %>
 

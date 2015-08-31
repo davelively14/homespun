@@ -12,8 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+    <%= f.number_field :user_id, value: current_user.id, type: 'hidden' %>
+  </div>
+  <div class="field">
+    <%= f.label :nick %><br>
+    <%= f.text_field :nick %>
   </div>
   <div class="field">
     <%= f.label :street1 %><br>
@@ -22,10 +25,6 @@
   <div class="field">
     <%= f.label :street2 %><br>
     <%= f.text_field :street2 %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
   </div>
   <div class="field">
     <%= f.label :city %><br>
