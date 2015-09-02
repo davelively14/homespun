@@ -1,7 +1,7 @@
 class Product < ActiveRecord::Base
   belongs_to :store
   has_many :line_items
-  has_many :orders, :through => :line_items
+  has_many :orders, through: :line_items
 
   before_destroy :ensure_no_line_items
 
