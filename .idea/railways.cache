@@ -1,4 +1,12 @@
                   Prefix Verb   URI Pattern                    Controller#Action
+                  guests GET    /guests(.:format)              guests#index
+                         POST   /guests(.:format)              guests#create
+               new_guest GET    /guests/new(.:format)          guests#new
+              edit_guest GET    /guests/:id/edit(.:format)     guests#edit
+                   guest GET    /guests/:id(.:format)          guests#show
+                         PATCH  /guests/:id(.:format)          guests#update
+                         PUT    /guests/:id(.:format)          guests#update
+                         DELETE /guests/:id(.:format)          guests#destroy
                    carts GET    /carts(.:format)               carts#index
                          POST   /carts(.:format)               carts#create
                 new_cart GET    /carts/new(.:format)           carts#new
