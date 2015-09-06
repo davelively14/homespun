@@ -15,6 +15,11 @@ class OrdersController < ApplicationController
   # GET /orders/new
   def new
     @order = Order.new
+    if current_user
+      @user = User.find(current_user)
+    elsif session[:guest_id]
+      @guest = Guest.find(session[:guest_id])
+    end
   end
 
   # GET /orders/1/edit
