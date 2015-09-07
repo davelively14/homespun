@@ -1,10 +1,11 @@
-
+<!-- TODO: Figure out how to preserve session variables when logging out -->
 <div class="row">
   <h1 class="text-center"><strong>Checkout</strong></h1>
-  <% if current_user || session[:guest_id] %>
+  <% if current_user %>
     <%= render 'form' %>
   <% elsif session[:guest_id] %>
     <h2>Guest user: <%= @guest.email %></h2>
+    <%= link_to "Cancel guest user", guest_path(session[:guest_id]), method: :delete %>
     <%= render 'form' %>
     <p>Proceed as new user instead?</p>
     <!-- TODO: link-to login -->

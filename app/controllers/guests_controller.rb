@@ -28,10 +28,11 @@ class GuestsController < ApplicationController
 
     respond_to do |format|
       if @guest.save
-        format.html { redirect_to @guest, notice: 'Guest was successfully created.' }
+        session[:guest_id] = @guest.id
+        format.html { redirect_to new_order_url }
         format.json { render :show, status: :created, location: @guest }
       else
-        format.html { render :new }
+        format.html { redirect_to new_order_url }
         format.json { render json: @guest.errors, status: :unprocessable_entity }
       end
     end
@@ -55,8 +56,9 @@ class GuestsController < ApplicationController
   # DELETE /guests/1.json
   def destroy
     @guest.destroy
+    session.delete(:guest_id)
     respond_to do |format|
-      format.html { redirect_to guests_url, notice: 'Guest was successfully destroyed.' }
+      format.html { redirect_to new_order_url }
       format.json { head :no_content }
     end
   end
