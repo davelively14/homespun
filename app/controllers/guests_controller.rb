@@ -25,7 +25,6 @@ class GuestsController < ApplicationController
   # POST /guests.json
   def create
     @guest = Guest.new(guest_params)
-    @guest.build_address
 
     respond_to do |format|
       if @guest.save

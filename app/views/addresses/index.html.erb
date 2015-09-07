@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>User</th>
+      <th>Guest</th>
       <th>Street1</th>
       <th>Street2</th>
       <th>City</th>
@@ -20,6 +21,7 @@
     <% @addresses.each do |address| %>
       <tr>
         <td><%= address.user_id %></td>
+        <td><%= address.guest_id %></td>
         <td><%= address.street1 %></td>
         <td><%= address.street2 %></td>
         <td><%= address.city %></td>

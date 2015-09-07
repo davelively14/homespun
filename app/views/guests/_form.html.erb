@@ -13,7 +13,7 @@
 
   <div class="row panel">
     <%= f.text_field :email, placeholder: 'Email', required: true %>
-    <%= fields_for :address, @guest.address do |a| %>
+    <%= f.fields_for :address do |a| %>
       <%= a.text_field :street1, placeholder: 'Street Address', required: true %>
       <%= a.text_field :street2, placeholder: 'Unit Number (optional)' %>
       <%= a.text_field :city, placeholder: 'City', required: true %>
