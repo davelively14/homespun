@@ -25,6 +25,7 @@ class GuestsController < ApplicationController
   # POST /guests.json
   def create
     @guest = Guest.new(guest_params)
+    @guest.build_address
 
     respond_to do |format|
       if @guest.save
@@ -69,6 +70,6 @@ class GuestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def guest_params
-      params.require(:guest).permit(:email, :address_id)
+      params.require(:guest).permit(:email, address_attributes:[:id, :user_id, :street1, :street2, :city, :state, :zip, :guest_id])
     end
 end

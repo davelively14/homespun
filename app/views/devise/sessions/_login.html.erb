@@ -13,7 +13,9 @@
   <div class="row">
     <%= f.submit "Log in", class: "button small radius right" %>
     <%= link_to "Signup", new_user_registration_path, class: "button small success radius right" %>
-    <%= link_to "Forgot Password", new_user_password_path, class: "button small alert radius right" %>
+  </div>
+  <div class="row">
+    <%= link_to "Forgot password?", new_user_password_path, class: "right" %>
   </div>
 
 <% end %>

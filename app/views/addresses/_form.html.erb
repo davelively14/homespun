@@ -11,34 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="row">
     <%= f.number_field :user_id, value: current_user.id, type: 'hidden' %>
-  </div>
-  <div class="field">
-    <%= f.label :nick %><br>
-    <%= f.text_field :nick %>
-  </div>
-  <div class="field">
-    <%= f.label :street1 %><br>
-    <%= f.text_field :street1 %>
-  </div>
-  <div class="field">
-    <%= f.label :street2 %><br>
-    <%= f.text_field :street2 %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
-  </div>
-  <div class="field">
-    <%= f.label :zip %><br>
-    <%= f.text_field :zip %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+    <%= f.text_field :nick, placeholder: 'Nickname', autofocus: true, required: true %>
+    <%= f.text_field :street1, placeholder: 'Street Address', required: true %>
+    <%= f.text_field :street2, placeholder: 'Unit Number (optional)' %>
+    <%= f.text_field :city, placeholder: 'City', required: true %>
+    <%= f.text_field :state, placeholder: 'State', required: true %>
+    <%= f.text_field :zip, placeholder: 'Zip', required: true %>
+    <%= f.submit "Create", class: "button radius expand" %>
   </div>
 <% end %>
