@@ -12,7 +12,9 @@
   <% end %>
 
   <div class="row panel">
+    <h6>Email</h6>
     <%= f.text_field :email, placeholder: 'Email', required: true %>
+    <h6>Shipping Address</h6>
     <%= f.fields_for :address do |a| %>
       <%= a.text_field :street1, placeholder: 'Street Address', required: true %>
       <%= a.text_field :street2, placeholder: 'Unit Number (optional)' %>

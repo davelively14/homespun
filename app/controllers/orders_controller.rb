@@ -18,8 +18,19 @@ class OrdersController < ApplicationController
 
     if current_user
       @user = User.find(current_user)
+      @cart = Cart.find(session[:cart_id])
+      @total = 0
+      @cart.line_items.each do |line_item|
+        @total = @total + (line_item.sales_price * line_item.quantity)
+      end
     elsif session[:guest_id]
       @guest = Guest.find(session[:guest_id])
+      @address = @guest.address
+      @cart = Cart.find(session[:cart_id])
+      @total = 0
+      @cart.line_items.each do |line_item|
+        @total = @total + (line_item.sales_price * line_item.quantity)
+      end
     else
       @guest = Guest.new
       @guest.build_address
