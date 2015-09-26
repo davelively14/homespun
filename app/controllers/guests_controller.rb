@@ -55,8 +55,8 @@ class GuestsController < ApplicationController
   # DELETE /guests/1
   # DELETE /guests/1.json
   def destroy
-    @guest.destroy
     session.delete(:guest_id)
+    @guest.destroy
 
     respond_to do |format|
       format.html { redirect_to new_order_url }
